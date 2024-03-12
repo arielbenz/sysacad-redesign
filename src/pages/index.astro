@@ -3,26 +3,54 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="SysAcad 2024">
-  <main>
-    <h1 class="text-3xl font-bold">SysAcad 2024</h1>
-  </main>
-</Layout>
+  <section class="md:grid md:grid-cols-2">
+    <section class="bg-white py-10 rounded-2xl md:max-w-96">
+      <h2 class="text-5xl font-bold">Bienvenido</h2>
 
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-</style>
+      <h3 class="text-xl font-normal mt-6 text-slate-400">
+        Accede con tu datos
+      </h3>
+
+      <form>
+        <div class="flex flex-col mt-10 text-slate-400">
+          <label class="font-thin" for="legajo-user">#Legajo</label>
+          <input
+            id="legajo-user"
+            required
+            name="legajo"
+            class="py-3 px-4 border-solid border border-slate-200 rounded-xl mt-2"
+            type="text"
+          />
+        </div>
+
+        <div class="flex flex-col mt-6 text-slate-400">
+          <label class="font-thin" for="password-user">Contraseña</label>
+          <input
+            id="password-user"
+            required
+            name="password"
+            class="py-3 px-4 border-solid border border-slate-200 rounded-xl mt-2"
+            type="text"
+          />
+        </div>
+
+        <div class="flex justify-end">
+          <a
+            class="flex text-right text-[#267FFF] hover:underline hover:underline-offset-4 mt-3"
+            href="">Olvidé mi contraseña</a
+          >
+        </div>
+
+        <button
+          class="bg-[#267FFF] hover:bg-[#398afa] py-3 px-4 rounded-xl text-white mt-8 w-full shadow-lg shadow-slate-300"
+        >
+          Ingresar
+        </button>
+      </form>
+    </section>
+
+    <section class="hidden md:block">
+      <img src="./home-background.jpg" alt="Login background" />
+    </section>
+  </section>
+</Layout>

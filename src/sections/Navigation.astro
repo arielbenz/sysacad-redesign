@@ -1,0 +1,97 @@
+<nav class="flex">
+  <button data-open-menu-button class="md:hidden cursor-pointer">
+    <svg
+      class="size-7"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+        d="M4 6l16 0"></path><path d="M4 12l16 0"></path><path d="M4 18l16 0"
+      ></path></svg
+    >
+  </button>
+
+  <ul
+    data-list-menu
+    class="absolute md:static bg-white md:flex right-[-100%] h-full w-full md:w-auto md:bg-transparent md:mt-0 pt-20 md:pt-0 top-0 transition-all ease-in duration-500 flex flex-col justify-between md:flex-row"
+  >
+    <div class="md:flex">
+      <div class="border-[0.5px] border-solid border-slate-300 m-6 md:hidden">
+        <button
+          data-close-menu-button
+          class="absolute right-5 top-12 cursor-pointer"
+        >
+          <svg
+            class="size-7"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-x"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg
+          >
+        </button>
+      </div>
+
+      <li class="mx-6 my-6 md:my-0">
+        <a class="hover:opacity-60" href="/">Inicio</a>
+      </li>
+      <li class="mx-6 my-6 md:my-0">
+        <a class="hover:opacity-60" href="/avisos">Avisos</a>
+      </li>
+      <li class="mx-6 my-6 md:my-0">
+        <a class="hover:opacity-60" href="/ayuda">Ayuda</a>
+      </li>
+    </div>
+
+    <div class="border-[0.5px] border-solid border-slate-300 m-6 md:hidden">
+      <div>User</div>
+      <div>Light</div>
+    </div>
+  </ul>
+</nav>
+
+<script>
+  const openMenuButton = document.querySelector("[data-open-menu-button]");
+  const closeMenuButton = document.querySelector("[data-close-menu-button]");
+  const listMenu = document.querySelector("[data-list-menu]");
+  const body = document.querySelector("body");
+
+  if (openMenuButton) {
+    openMenuButton.addEventListener("click", () => {
+      listMenu.classList.add("active");
+      body.classList.add("no-scroll");
+    });
+  }
+
+  if (closeMenuButton) {
+    closeMenuButton.addEventListener("click", () => {
+      listMenu.classList.remove("active");
+      body.classList.remove("no-scroll");
+    });
+  }
+</script>
+
+<style>
+  ul.active {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+
+  body.no-scroll {
+    overflow: hidden;
+  }
+</style>
